@@ -48,7 +48,7 @@ Benodigd: Pillow, ffmpeg, Lora- en Poppins-fonts in /usr/share/fonts/truetype/go
   toestemmingen zwart op wit, bellen zonder je nummer te delen met belgeschiedenis, berichtenfilter voor een rustige toon, documenten op één plek.
 - Vaste belofte: "KidsBrug komt binnenkort. De eerste 30 gezinnen die zich nu inschrijven, krijgen 6 maanden gratis toegang." gevolgd door "👉 Link in bio of reageer BRUG". Geen andere beloftes of termijnen verzinnen.
 - Caption-opbouw zoals de eerdere reels: POV-zin met emoji, 2-3 korte herkenbare zinnen, wat KidsBrug doet, "Minder ... Meer rust voor je kind. 💛", de vaste belofte, en een afsluitende vraag ("Herkenbaar? Tag iemand die dit ook kent.").
-- Hashtags (vaste set): #coouderschap #coouders #gescheidenouders #scheidenmetkinderen #tweehuizen #ouderschapsplan #scheiding #coouderschapbelgie #coouderschapnederland #samenouderschap #gescheidenmetkinderen #kidsbrug
+- Hashtags: precies 5, alleen in de caption (Instagram staat sinds december 2025 maximaal 5 toe; hashtags in de eerste reactie tellen mee, dus daar nooit hashtags). Vast: #coouderschap #gescheidenouders #scheidenmetkinderen, plus 2 die bij het onderwerp passen (bv. #wisselschema #tweehuizen, #kinderkosten #ouderschapsplan, #samenouderschap, #coouderschapbelgie). Ochtend en avond hoeven niet te verschillen; het onderwerp bepaalt de 2 wisselende.
 - Eerste reactie (veld `firstComment`): een vraag over het onderwerp + "Reageer BRUG en je krijgt de link om je in te schrijven voor de wachtlijst." (ManyChat stuurt de link bij BRUG).
 - Geen juridisch of medisch advies, geen echte namen, geen kinderen in beeld.
 - Gebruik geen dagen/data in een reel die niet kloppen met het moment van posten.
