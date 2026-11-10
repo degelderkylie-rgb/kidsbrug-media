@@ -190,3 +190,103 @@ def cover(title, msgs, sub=None):
 
 def save_cover(im, path):
     im.save(path, "JPEG", quality=90)
+
+
+# ---------------- Carrousels (staand 4:5, 1080x1350) ----------------
+CW, CH = 1080, 1350
+
+
+def cbase():
+    im = Image.new("RGB", (CW, CH), BG)
+    return im, ImageDraw.Draw(im)
+
+
+def cwrap_text(d, x, y, text, font, fill=DARK, maxw=860, gap=1.3, anchor="la"):
+    lines = wrap(d, text, font, maxw); lh = font.size * gap
+    for i, l in enumerate(lines): d.text((x, y + i * lh), l, font=font, fill=fill, anchor=anchor)
+    return y + len(lines) * lh
+
+
+def cfooter(d, n, total):
+    """Woordmerk links onder, paginateller rechts onder, en een swipe-hint op slide 1."""
+    d.text((110, CH - 90), "KidsBrug", font=serif(34), fill=BROWN, anchor="lm")
+    d.text((CW - 110, CH - 90), f"{n}/{total}", font=sans(26, "Medium"), fill=MUTED, anchor="rm")
+
+
+def ccenter(d, y, text, font, fill=DARK, maxw=880, gap=1.22):
+    lines = wrap(d, text, font, maxw); lh = font.size * gap
+    for i, l in enumerate(lines): d.text((CW / 2, y + i * lh), l, font=font, fill=fill, anchor="ma")
+    return y + len(lines) * lh
+
+
+def slide_cover(title, sub=None, kicker=None, total=6):
+    """Eerste slide: grote kop, die ook als omslag in het raster staat (alles binnen het middelste 3:4-vlak)."""
+    im, d = cbase()
+    y = 300
+    if kicker:
+        f = sans(28, "Medium"); tw = d.textlength(kicker.upper(), font=f) + 60
+        d.rounded_rectangle((CW / 2 - tw / 2, y, CW / 2 + tw / 2, y + 64), 32, fill=ROSE)
+        d.text((CW / 2, y + 32), kicker.upper(), font=f, fill=DARK, anchor="mm"); y += 120
+    y = ccenter(d, y, title, serif(88, "SemiBold"), maxw=880)
+    if sub: ccenter(d, y + 30, sub, serif(48), fill=BROWN, maxw=820)
+    d.text((CW / 2, CH - 230), "Swipe", font=sans(30, "Medium"), fill=MUTED, anchor="mm")
+    d.text((CW / 2, CH - 190), "›  ›  ›", font=sans(30, "Medium"), fill=MUTED, anchor="mm")
+    cfooter(d, 1, total); return im
+
+
+def slide_point(n, total, num, title, body, extra=None):
+    """Tip of stap: nummer (of vinkje bij num=None) in een cirkel, kop, uitleg, optioneel een voorbeeld-kaartje.
+    De inhoud staat verticaal gecentreerd."""
+    im, d = cbase()
+    tf, bf, ef = serif(76, "SemiBold"), sans(44), sans(38, "Medium")
+    tl, bl = wrap(d, title, tf, 860), wrap(d, body, bf, 860)
+    el = wrap(d, extra, ef, 760) if extra else []
+    h = 130 + 50 + len(tl) * tf.size * 1.18 + 40 + len(bl) * bf.size * 1.45 + ((60 + 70 + len(el) * ef.size * 1.5) if el else 0)
+    y = max(140, (CH - 130 - h) / 2)
+    d.ellipse((110, y, 240, y + 130), fill=SAGE)
+    if num is None: d.text((175, y + 65), "✓", font=ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 64), fill=DARK, anchor="mm")
+    else: d.text((175, y + 65), str(num), font=serif(70, "SemiBold"), fill=DARK, anchor="mm")
+    y = cwrap_text(d, 110, y + 180, title, tf, maxw=860, gap=1.18)
+    y = cwrap_text(d, 110, y + 40, body, bf, fill=MUTED, maxw=860, gap=1.45)
+    if el:
+        card(d, (110, y + 60, CW - 110, y + 60 + 70 + ef.size * 1.5 * len(el)), fill=WHITE, r=36)
+        cwrap_text(d, 150, y + 95, extra, ef, fill=DARK, maxw=760, gap=1.5)
+    cfooter(d, n, total); return im
+
+
+def slide_phone(n, total, title, screen_title, draw_screen):
+    """Slide met een (kleinere) telefoon. draw_screen(d, (x0,y0,x1,y1)) tekent het app-scherm."""
+    im, d = cbase()
+    ccenter(d, 120, title, serif(66, "SemiBold"), maxw=900)
+    dd, box = phone(im, top=300, w=600, h=880, title=screen_title)
+    draw_screen(dd, box)
+    d = ImageDraw.Draw(im)
+    cfooter(d, n, total); return im
+
+
+def slide_closing(n, total, line):
+    """Laatste slide: vaste afsluiter met wachtlijst."""
+    im, d = cbase()
+    ccenter(d, 190, line, serif(64, "SemiBold"), maxw=880)
+    card(d, (110, 520, 970, 940), fill=WHITE, r=40)
+    d.text((CW / 2, 590), "BINNENKORT LIVE", font=sans(30, "Medium"), fill=BROWN, anchor="mm")
+    d.text((CW / 2, 690), "Schrijf je nu in", font=serif(76, "SemiBold"), fill=DARK, anchor="mm")
+    d.text((CW / 2, 790), "De eerste 30 gezinnen krijgen", font=serif(42), fill=DARK, anchor="mm")
+    d.text((CW / 2, 855), "6 maanden gratis", font=serif(52, "SemiBold"), fill=DARK, anchor="mm")
+    d.rounded_rectangle((220, 1010, 860, 1120), 55, fill=BROWN)
+    d.text((CW / 2, 1065), "Link in bio · reageer BRUG", font=sans(40, "Medium"), fill=WHITE, anchor="mm")
+    cfooter(d, n, total); return im
+
+
+def save_carousel(slides, outprefix):
+    """slides: lijst van functies die een Image teruggeven. Schrijft outprefix-1.jpg ... -N.jpg en geeft de paden terug."""
+    paths = []
+    for i, f in enumerate(slides, 1):
+        p = f"{outprefix}-{i}.jpg"; f().save(p, "JPEG", quality=90); paths.append(p)
+    return paths
+
+
+def carousel_sheet(paths, path):
+    s = Image.new("RGB", (324 * len(paths), 405), "white")
+    for i, p in enumerate(paths): s.paste(Image.open(p).resize((324, 405)), (i * 324, 0))
+    s.save(path)
