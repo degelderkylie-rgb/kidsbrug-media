@@ -8,7 +8,7 @@ Metricool haalt de video's op via `https://raw.githubusercontent.com/degelderkyl
 - Dashboard (goedkeuren door Kylie): https://claude.ai/artifact/Vh314yJdhdhmt9C9xrfxxe
   - Database-collectie `posts`, één document per post, id `YYYY-MM-DD-HHMM`.
   - Velden: `date` (YYYY-MM-DD), `time` (HH:MM, Europe/Brussels), `format` ("REEL"), `networks` (["instagram","facebook"]),
-    `series`, `hook`, `caption`, `firstComment`, `previewAsset` (asset-id in het dashboard), `mediaUrl` (openbare GitHub-link),
+    `series`, `hook`, `caption`, `firstComment`, `previewAsset` (asset-id in het dashboard), `mediaUrl` (openbare GitHub-link), `coverUrl` + `coverAsset` (omslagfoto),
     `status` ("wacht" | "aanpassen" | "ingepland" | "overgeslagen"), `feedback` (Kylie's opmerking bij "aanpassen"), `createdBy`.
   - `meta/briefing`: `{date, message}` ochtendbericht aan Kylie. `meta/strateeg`: `{week, works[], weak[], plan[]}`. `meta/team`: `{lastRun}`.
   - Kylie keurt goed in het dashboard; het dashboard plant dan zelf in Metricool in. Plan nooit zelf in zonder haar akkoord.
@@ -32,6 +32,11 @@ Maak een nieuw script in `studio/reels/YYYY-MM-DD-onderwerp.py` (kopieer het voo
 python3 studio/reels/<script>.py <werkmap> x --sheet                       # stills -> <werkmap>/sheet.png, bekijk die
 python3 studio/reels/<script>.py <werkmap> reels/kidsbrug-YYYY-MM-DD-onderwerp.mp4
 ```
+**Omslagfoto (verplicht):** de reel begint met een fade vanuit crème, dus het eerste beeld is leeg. Elke reel krijgt daarom
+een eigen omslag via `cover()` (POV-kop + 2 appjes, alles binnen het middelste 3:4-vlak voor het profielraster). Het script
+schrijft die automatisch als `reels/kidsbrug-YYYY-MM-DD-onderwerp-cover.jpg`. Zet in de post `coverUrl` (openbare GitHub-link)
+en `coverAsset` (asset-id in het dashboard); het dashboard geeft hem mee aan Metricool als omslag.
+
 Gebruik in Poppins-tekst geen tekens als ✓ of → (die vallen weg); het vinkje in `checklist()` werkt wel.
 Benodigd: Pillow, ffmpeg, Lora- en Poppins-fonts in /usr/share/fonts/truetype/google-fonts/.
 

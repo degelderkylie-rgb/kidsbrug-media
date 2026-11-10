@@ -173,3 +173,20 @@ def render_reel(scenes, framedir, partsdir, out, X=0.25, F=0.3):
                    f"ffmpeg -y -loglevel error -i {partsdir}/joined.mp4 -f lavfi -i anullsrc=r=44100:cl=stereo -shortest "
                    f"-map 0:v -map 1:a -c:v copy -c:a aac -movflags +faststart {tmp}", shell=True, check=True)
     os.replace(tmp, out)
+
+
+def cover(title, msgs, sub=None):
+    """Omslagfoto (JPG) voor het Instagram-raster. Alles staat binnen het middelste 3:4-vlak (y 240-1680),
+    want Instagram knipt de boven- en onderkant weg in het profielraster.
+    msgs: [(tekst, me, label), ...] appjes onder de kop."""
+    im, d = base()
+    y = ctext(d, 400, title, serif(96, "SemiBold"), maxw=900)
+    if sub: y = ctext(d, y + 20, sub, serif(56), fill=BROWN)
+    y = max(y + 110, 900)
+    for t, me, l in msgs: y = bubble(d, y, t, me, l, big=True)
+    wordmark(d, y=1560)
+    return im
+
+
+def save_cover(im, path):
+    im.save(path, "JPEG", quality=90)

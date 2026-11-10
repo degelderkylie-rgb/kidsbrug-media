@@ -66,8 +66,11 @@ frames = {"A1": lambda: sA(1), "A2": lambda: sA(2), "A3": lambda: sA(3), "A4": l
 scenes = [("1", [("A1", 1.0), ("A2", 1.0), ("A3", 0.9), ("A4", 1.6)]), ("2", [("B2", 1.0), ("B4", 1.5)]),
           ("3", [("C1", 1.8), ("C2", 1.6), ("C3", 2.2)]), ("4", [("D", 3.4)]), ("5", [("E", 3.8)])]
 
+COVER = lambda: cover("POV: jullie hadden 18:00 afgesproken. Toch?", [("Ik sta klaar. Waar blijf je?", True, None), ("Het was toch 19:00?", False, "Ex")])
+
 if __name__ == "__main__":
     work = sys.argv[1]; out = sys.argv[2]
     save_frames(frames, f"{work}/frames")
+    save_cover(COVER(), out.replace(".mp4", "-cover.jpg") if out.endswith(".mp4") else f"{work}/cover.jpg")
     if "--sheet" in sys.argv: contact_sheet(f"{work}/frames", ["A4", "B4", "C1", "C2", "C3", "D", "E"], f"{work}/sheet.png")
     else: render_reel(scenes, f"{work}/frames", f"{work}/parts", out)
