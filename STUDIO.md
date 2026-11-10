@@ -40,6 +40,21 @@ en `coverAsset` (asset-id in het dashboard); het dashboard geeft hem mee aan Met
 Gebruik in Poppins-tekst geen tekens als ✓ of → (die vallen weg); het vinkje in `checklist()` werkt wel.
 Benodigd: Pillow, ffmpeg, Lora- en Poppins-fonts in /usr/share/fonts/truetype/google-fonts/.
 
+## Carrousels (maandag, woensdag, vrijdag om 12:30)
+
+Naast 2 reels per dag komt er 3 keer per week een carrousel (swipe-post, 4:5, 1080x1350) in dezelfde huisstijl,
+gemaakt met de carrousel-functies in `studio/kidsbrug_style.py`: `slide_cover`, `slide_point`, `slide_phone`, `slide_closing`.
+Voorbeelden: `studio/carrousels/2026-11-12-...py` (tips), `2026-11-14-...py` (zo werkt het, met telefoonschermen), `2026-11-17-...py` (vertrouwen).
+
+- Wissel drie soorten af: **Tips voor ouders** (bewaarwaardig, kindgericht), **Zo werkt KidsBrug** (één functie in 3 stappen met telefoon),
+  **Vertrouwen** (privacy, EU, wat KidsBrug wel en niet is; dit stelt ook bemiddelaars gerust die het profiel bekijken).
+- 6 of 7 slides: omslag (kicker + kop), de punten, vaste afsluiter `slide_closing`.
+- Bestanden: `carrousels/kidsbrug-YYYY-MM-DD-onderwerp-<n>.jpg`. Maak ze met
+  `python3 studio/carrousels/<script>.py carrousels/kidsbrug-YYYY-MM-DD-onderwerp <werkmap>/sheet.jpg` en bekijk het contactblad.
+- Post-document: id `YYYY-MM-DD-1230`, `format` "CAROUSEL", `mediaUrls` (lijst openbare links, in volgorde), `previewAssets` (lijst asset-id's),
+  geen `music`, geen omslag. Caption en eerste reactie volgen dezelfde regels als reels (5 hashtags, vaste belofte, "Bewaar deze post" bij tips).
+- Beweer niets over KidsBrug dat niet in de functielijst hieronder of in eerdere posts staat.
+
 ## Inhoud en toon
 
 - Doelgroep: gescheiden ouders in Nederland en België. Toon: rustig, herkenbaar, nooit beschuldigend naar de ex.
