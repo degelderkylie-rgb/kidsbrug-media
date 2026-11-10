@@ -8,7 +8,7 @@ Metricool haalt de video's op via `https://raw.githubusercontent.com/degelderkyl
 - Dashboard (goedkeuren door Kylie): https://claude.ai/artifact/Vh314yJdhdhmt9C9xrfxxe
   - Database-collectie `posts`, één document per post, id `YYYY-MM-DD-HHMM`.
   - Velden: `date` (YYYY-MM-DD), `time` (HH:MM, Europe/Brussels), `format` ("REEL"), `networks` (["instagram","facebook"]),
-    `series`, `hook`, `caption`, `firstComment`, `previewAsset` (asset-id in het dashboard), `mediaUrl` (openbare GitHub-link), `coverUrl` + `coverAsset` (omslagfoto),
+    `series`, `hook`, `caption`, `firstComment`, `previewAsset` (asset-id in het dashboard), `mediaUrl` (openbare GitHub-link), `coverUrl` + `coverAsset` (omslagfoto), `music` (Instagram-muziek, titel + artiest; laat leeg, Kylie kiest zelf),
     `status` ("wacht" | "aanpassen" | "ingepland" | "overgeslagen"), `feedback` (Kylie's opmerking bij "aanpassen"), `createdBy`.
   - `meta/briefing`: `{date, message}` ochtendbericht aan Kylie. `meta/strateeg`: `{week, works[], weak[], plan[]}`. `meta/team`: `{lastRun}`.
   - Kylie keurt goed in het dashboard; het dashboard plant dan zelf in Metricool in. Plan nooit zelf in zonder haar akkoord.
