@@ -14,21 +14,26 @@ Metricool haalt de video's op via `https://raw.githubusercontent.com/degelderkyl
   - Kylie keurt goed in het dashboard; het dashboard plant dan zelf in Metricool in. Plan nooit zelf in zonder haar akkoord.
 - Metricool-merk KidsBrug: brandId `7752204`, tijdzone `Europe/Brussels`, netwerken Instagram (@kidsbrug) en Facebook.
 
-## Reels maken
+## Reels maken (vaste KidsBrug-huisstijl)
 
-`studio/render.py` zet een HTML-pagina om naar een MP4 (1080x1920, 30 fps, stille audiospoor):
+Alle reels gebruiken `studio/kidsbrug_style.py`. Dat is exact de stijl van de eerste KidsBrug-reels
+("47 berichtjes", "Ik heb wél gebeld", "Dezelfde vraag, voor de 100e keer"): warme crème achtergrond, Lora-koppen,
+Poppins-appjes, bruin/roze/salie/goud, telefoon-mockup met app-scherm, woordmerk onderaan, zachte fades. Wijk daar niet van af.
 
+Vaste opbouw (15 tot 20 seconden), zie `studio/reels/2026-11-11-wisselmoment.py` als voorbeeld:
+1. **POV-haak** (4-5 s): kop "POV: ..." en 3-4 appjes die één voor één verschijnen (`bubble`, ex links met label "Ex", jij rechts).
+2. **Herkenning** (2-3 s): "En daar gaan we weer." of vergelijkbaar, korte heen-en-weer appjes.
+3. **Oplossing** (4-6 s): "Met KidsBrug ..." met `phone()` en het echte app-scherm voor die functie.
+4. **Vertrouwen** (3,4 s): `checklist()` met 4 punten en een afsluitende zin in bruin.
+5. **Afsluiter** (3,8 s): `cta()`, altijd dezelfde.
+
+Maak een nieuw script in `studio/reels/YYYY-MM-DD-onderwerp.py` (kopieer het voorbeeld), bekijk eerst het contactblad:
 ```
-python3 studio/render.py studio/werk/reel-x.html reels/kidsbrug-YYYY-MM-DD-onderwerp.mp4
-python3 studio/render.py studio/werk/reel-x.html --stills 2,6,12   # eerst stills bekijken
+python3 studio/reels/<script>.py <werkmap> x --sheet                       # stills -> <werkmap>/sheet.png, bekijk die
+python3 studio/reels/<script>.py <werkmap> reels/kidsbrug-YYYY-MM-DD-onderwerp.mp4
 ```
-
-Een reel-pagina gebruikt `style.css` en `engine.js` (zie `studio/voorbeelden/`). Elke `.scene` heeft `data-start`/`data-end`
-(seconden), de laatste scene `data-hold`. Elementen met `data-in` (seconden na scenestart) komen in beeld (`data-fx`: up, pop, left, right).
-Bouwstenen: `.kicker`, `.h1`, `.h2`, `.body`, `.hl`, `.chat` met `.b.me`/`.b.them`, `.card` met `.row`, `.feat`, `.cal`, `.cta` met `.btn`.
-Houd reels 14 tot 19 seconden. Tekst blijft in het midden; onderaan 420px vrij laten voor de Instagram-knoppen.
-
-Benodigd: google-chrome, playwright (Python), ffmpeg.
+Gebruik in Poppins-tekst geen tekens als ✓ of → (die vallen weg); het vinkje in `checklist()` werkt wel.
+Benodigd: Pillow, ffmpeg, Lora- en Poppins-fonts in /usr/share/fonts/truetype/google-fonts/.
 
 ## Inhoud en toon
 
@@ -36,7 +41,9 @@ Benodigd: google-chrome, playwright (Python), ffmpeg.
 - Werkt het best (data okt-nov 2026): reels met één herkenbaar ruziemoment, daarna één functie die het oplost. Reels halen ~5x meer bereik dan foto-posts.
 - Functies van KidsBrug: gedeelde kalender en wisselschema, wijziging aanvragen met ja/nee, kosten delen met bonnetje en automatische verdeling,
   toestemmingen zwart op wit, bellen zonder je nummer te delen met belgeschiedenis, berichtenfilter voor een rustige toon, documenten op één plek.
-- Vaste afsluiter: "Zet je op de wachtlijst via de link in bio. De eerste 30 gezinnen krijgen gratis toegang." Geen andere beloftes of termijnen verzinnen.
-- Captions eindigen met een vraag of een emoji-reactie. 4 tot 6 hashtags, o.a. #coouderschap #gescheidenouders #tweehuizen #scheidenmetkinderen #ouderschapsplan.
+- Vaste belofte: "KidsBrug komt binnenkort. De eerste 30 gezinnen die zich nu inschrijven, krijgen 6 maanden gratis toegang." gevolgd door "👉 Link in bio of reageer BRUG". Geen andere beloftes of termijnen verzinnen.
+- Caption-opbouw zoals de eerdere reels: POV-zin met emoji, 2-3 korte herkenbare zinnen, wat KidsBrug doet, "Minder ... Meer rust voor je kind. 💛", de vaste belofte, en een afsluitende vraag ("Herkenbaar? Tag iemand die dit ook kent.").
+- Hashtags (vaste set): #coouderschap #coouders #gescheidenouders #scheidenmetkinderen #tweehuizen #ouderschapsplan #scheiding #coouderschapbelgie #coouderschapnederland #samenouderschap #gescheidenmetkinderen #kidsbrug
+- Eerste reactie (veld `firstComment`): een vraag over het onderwerp + "Reageer BRUG en je krijgt de link om je in te schrijven voor de wachtlijst." (ManyChat stuurt de link bij BRUG).
 - Geen juridisch of medisch advies, geen echte namen, geen kinderen in beeld.
 - Gebruik geen dagen/data in een reel die niet kloppen met het moment van posten.
