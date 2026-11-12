@@ -1,1 +1,3 @@
 __pycache__/
+# Klantfoto's van Hola Smile blijven privé (staan als assets in het dashboard)
+holasmile/fotos/*.jpg

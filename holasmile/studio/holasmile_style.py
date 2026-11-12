@@ -174,7 +174,7 @@ def cta():
     d.text((W / 2, 545), "CLINIC · ZUNDERT", font=sans(30, "Medium"), fill=GOLD, anchor="mm")
     rule(d, 640)
     shade_guide(d, 740, active=6, w=760, labels=False)
-    ctext(d, 1080, "Een stralende glimlach\nin 40 minuten.", serif(62, "SemiBold"))
+    ctext(d, 1080, "Een stralende glimlach\nin één afspraak.", serif(62, "SemiBold"))
     d.rounded_rectangle((180, 1340, 900, 1470), 65, fill=GOLD)
     d.text((W / 2, 1405), "Boek via de link in bio", font=sans(44, "Medium"), fill=BG, anchor="mm")
     d.text((W / 2, 1550), "of stuur ons SMILE in een DM", font=sans(34), fill=CREAM, anchor="mm")

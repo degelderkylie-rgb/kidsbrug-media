@@ -45,7 +45,7 @@ python3 holasmile/studio/reels/<script>.py <werkmap> x --sheet
 python3 holasmile/studio/reels/<script>.py <werkmap> holasmile/reels/holasmile-YYYY-MM-DD-onderwerp.mp4
 ```
 De omslag (`-cover.jpg`) wordt automatisch geschreven; bekijk die ook. Alles moet binnen beeld en binnen het middelste 3:4-vlak van de omslag blijven.
-De eerste seconde moet al de haak tonen (geen leeg of rustig beginbeeld). Gebruik in Poppins-tekst geen ✓ of →.
+De eerste seconde moet al de haak tonen (geen leeg of rustig beginbeeld). Gebruik in beeldtekst geen emoji, ✓ of → (die worden een vierkantje); emoji mogen alleen in de caption.
 
 ## Carrousels (dinsdag en vrijdag 12:30, 4:5)
 
@@ -59,7 +59,7 @@ Bestanden `holasmile/carrousels/holasmile-YYYY-MM-DD-onderwerp-<n>.jpg`; bekijk 
 - Doelgroep: vrouwen 25-55 in Zundert, Breda, Etten-Leur, Roosendaal en net over de grens (Hoogstraten). Toon: warm, eerlijk, een tikje luxe, nooit opdringerig.
 - Wat werkt (data juli-nov 2026): echte resultaten met echte mensen (duobehandeling moeder & dochter: 1.723 bereik), POV-haken, concrete tips (3× langere kijktijd).
   Wat niet werkt: sfeervideo's over de massagestoel (128-263 bereik) en steeds dezelfde "ontspan + boek nu"-boodschap.
-- Feiten die je mag gebruiken: behandeling in één afspraak, rondes van 20 minuten (Pakket 1 = 1 ronde, Pakket 2 = 3, Pakket 3 = 4), duobehandeling mogelijk,
+- Feiten die je mag gebruiken: behandeling in één afspraak (noem NOOIT "40 minuten" of een totale duur; dat klopt niet), rondes van 20 minuten (Pakket 1 = 1 ronde, Pakket 2 = 3, Pakket 3 = 4), duobehandeling mogelijk,
   nieuwste generatie LED-lampen, luxe massagestoelen, nieuwe mondspreiders per klant, open maandag t/m zaterdag, Zundert.
   "Tot 10 tinten lichter" alleen met "resultaat verschilt per persoon". Verzin geen prijzen, kortingen, termijnen of medische beloftes.
 - Nooit: AI-gegenereerde of nep-resultaten, nep-klanten of nep-reviews, medische claims ("veilig voor iedereen", "geen enkele gevoeligheid"), vergelijken met of afkraken van tandartsen.

@@ -33,7 +33,7 @@ def sC():
     ctext(d, 320, "Met een professionele\nbleekbehandeling", serif(70, "SemiBold"))
     shade_guide(d, 720, active=5, w=820, labels=False)
     ctext(d, 1140, "werk je ook aan de\nverkleuring zelf.", serif(64, "SemiBold"))
-    ctext(d, 1400, "Bij ons in 40 minuten,\nterwijl jij ontspant in een massagestoel.", sans(38), fill=MUTED, maxw=860)
+    ctext(d, 1400, "Bij ons in één afspraak,\nterwijl jij ontspant in een massagestoel.", sans(38), fill=MUTED, maxw=860)
     wordmark(d); return im
 
 
