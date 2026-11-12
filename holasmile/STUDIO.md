@@ -28,7 +28,13 @@ Alles gebruikt `holasmile/studio/holasmile_style.py`: bijna zwarte warme achterg
 crème Lora-koppen, goud als accent, Poppins voor kleine tekst, sparkles, de gouden **kleurwaaier** (`shade_guide`) als vast
 herkenningsteken, woordmerk "Hola Smile Clinic · Zundert" onderaan, zachte fades. Vaste afsluiter `cta()`.
 
-## Reels (15 tot 20 seconden)
+## Reels (12 tot 16 seconden) — ALTIJD MET BEWEGING
+
+Kylie vond reels met stilstaande dia's en fades te saai. Elke reel gebruikt daarom `holasmile/studio/holasmile_motion.py`
+(frame voor frame, 30 fps): tekst die erin knalt (`pop`), inzoomen, schuiven, sparkles die twinkelen, snelle wissels (scenes van 1,5-2,5 s),
+en als afsluiter `cta_motion`. Voorbeeld: `studio/reels/sjabloon-voor-na-beweging.py`. Maak ook mythe-, tip- en vraag-reels op die manier
+(bv. stelling knalt erin, stempel MYTHE slaat erop, kleurwaaier schuift van geel naar wit, lijstpunten komen één voor één binnen).
+De oude stilstaande functies (`render_reel`) gebruik je niet meer voor nieuwe reels.
 
 Wissel deze reeksen af (kijk welke het laatst was en wat de strateeg vraagt):
 1. **Mythe of feit** — voorbeeld `studio/reels/2026-11-13-whitening-tandpasta.py`: stelling in `quote_card` → `stamp` MYTHE/FEIT → uitleg met kleurwaaier → `listing` "Wat wél helpt" → `cta()`.
