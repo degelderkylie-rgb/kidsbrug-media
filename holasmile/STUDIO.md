@@ -35,6 +35,7 @@ Kylie vond reels met stilstaande dia's en fades te saai. Elke reel gebruikt daar
 en als afsluiter `cta_motion`. Voorbeeld: `studio/reels/sjabloon-voor-na-beweging.py`. Maak ook mythe-, tip- en vraag-reels op die manier
 (bv. stelling knalt erin, stempel MYTHE slaat erop, kleurwaaier schuift van geel naar wit, lijstpunten komen één voor één binnen).
 De oude stilstaande functies (`render_reel`) gebruik je niet meer voor nieuwe reels.
+**Leestempo (feedback Kylie):** elke tekst staat minstens 2,5 seconden rustig in beeld, ook al beweegt de rest. Liever minder tekst dan te snel.
 
 Wissel deze reeksen af (kijk welke het laatst was en wat de strateeg vraagt):
 1. **Mythe of feit** — voorbeeld `studio/reels/2026-11-13-whitening-tandpasta.py`: stelling in `quote_card` → `stamp` MYTHE/FEIT → uitleg met kleurwaaier → `listing` "Wat wél helpt" → `cta()`.
@@ -62,13 +63,16 @@ Voorbeeld `studio/carrousels/2026-11-14-geel-na-koffie.py`: `slide_cover` (kicke
 Wissel af: **Tips** (bewaarwaardig, "Bewaar deze post"), **Zo gaat een behandeling** (stap voor stap: intake, beschermen, 3-4 rondes van 20 min onder de LED-lamp, nazorg),
 **Welk pakket past bij jou** (koffiedrinkers/rokers minstens Pakket 2, nooit eerder gebleekt vaak 3 rondes).
 Bestanden `holasmile/carrousels/holasmile-YYYY-MM-DD-onderwerp-<n>.jpg`; bekijk het contactblad.
+**Feedback Kylie (12 nov):** tekst viel weg en ze miste beelden. Houd alle tekst binnen het middelste vierkant (y 135-1215, marge 130 px, kleinere tekst),
+en zet op de omslag en de afsluiter een echt beeld: een voor/na-paar uit `meta/fotos.library` (privé ophalen) of een studiofoto als die er is.
+Alleen de afgewerkte slides gaan naar git, nooit de losse foto's.
 
 ## Inhoud en toon
 
 - Doelgroep: vrouwen 25-55 in Zundert, Breda, Etten-Leur, Roosendaal en net over de grens (Hoogstraten). Toon: warm, eerlijk, een tikje luxe, nooit opdringerig.
 - Wat werkt (data juli-nov 2026): echte resultaten met echte mensen (duobehandeling moeder & dochter: 1.723 bereik), POV-haken, concrete tips (3× langere kijktijd).
   Wat niet werkt: sfeervideo's over de massagestoel (128-263 bereik) en steeds dezelfde "ontspan + boek nu"-boodschap.
-- Feiten die je mag gebruiken: behandeling in één afspraak (noem NOOIT "40 minuten" of een totale duur; dat klopt niet), rondes van 20 minuten (Pakket 1 = 1 ronde, Pakket 2 = 3, Pakket 3 = 4), duobehandeling mogelijk,
+- Feiten die je mag gebruiken: behandeling in één afspraak (noem NOOIT "40 minuten" of een totale duur; dat klopt niet), rondes van 20 minuten (Pakket 1 = 1 × 20 min, gemiddeld 2-4 tinten lichter; Pakket 2 = 3 × 20 = 60 min; Pakket 3 = 4 × 20 = 80 min; resultaat verschilt per persoon), duobehandeling mogelijk,
   nieuwste generatie LED-lampen, luxe massagestoelen, nieuwe mondspreiders per klant, open maandag t/m zaterdag, Zundert.
   "Tot 10 tinten lichter" alleen met "resultaat verschilt per persoon". Verzin geen prijzen, kortingen, termijnen of medische beloftes.
 - Nooit: AI-gegenereerde of nep-resultaten, nep-klanten of nep-reviews, medische claims ("veilig voor iedereen", "geen enkele gevoeligheid"), vergelijken met of afkraken van tandartsen.
