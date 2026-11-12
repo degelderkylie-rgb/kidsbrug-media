@@ -40,8 +40,11 @@ Wissel deze reeksen af (kijk welke het laatst was en wat de strateeg vraagt):
 1. **Mythe of feit** — voorbeeld `studio/reels/2026-11-13-whitening-tandpasta.py`: stelling in `quote_card` → `stamp` MYTHE/FEIT → uitleg met kleurwaaier → `listing` "Wat wél helpt" → `cta()`.
 2. **Tips** — "3 dingen die je tanden geel maken", nazorg, koffie, rode wijn; haak + `listing` + `cta()`.
 3. **Vraag van een klant** — "Doet het pijn?", "Hoe lang duurt het?", "Welk pakket past bij mij?"; `quote_card` met label "Vraag van een klant" + antwoord.
-4. **Echt resultaat (voor/na)** — ALLEEN met Kylie's echte foto's uit `holasmile/fotos/` (bestanden `*-voor.jpg` en `*-na.jpg` met dezelfde naam ervoor).
-   Gebruik `studio/reels/sjabloon-voor-na.py`. Doe dit zodra er een paar foto's staat die nog niet in `meta/fotos.used` staat, maximaal 2 keer per week.
+4. **Echt resultaat (voor/na)** — ALLEEN met Kylie's echte foto's (klanten gaven toestemming), maximaal 2 keer per week. De foto's zijn PRIVÉ:
+   ze staan NIET in git (`holasmile/fotos/*.jpg` staat in .gitignore) maar als assets in het dashboard. `meta/fotos.library` = [{name: "klantNN", voor: asset-id, na: asset-id}], `meta/fotos.used` = al gebruikte namen.
+   Haal een ongebruikt paar op met de asset-lees-tool van het dashboard naar `holasmile/fotos/klantNN-voor.jpg` / `-na.jpg` (liggend 1080x608) en commit die nooit.
+   Lukt ophalen niet, maak dan een andere reel en meld het in de briefing. Alleen de afgewerkte reel gaat naar `holasmile/reels/`, en pas de dag vóór hij online gaat.
+   Gebruik `studio/reels/sjabloon-voor-na-beweging.py` (zet FOTO op de naam).
    Foto's nooit bewerken, witter maken of bijsnijden tot iets anders; altijd "Geen filter. Resultaten verschillen per persoon."
 5. **Aanbod** (maximaal 1 op de 5 reels) — kerst-cadeaubox, teamsessies voor bedrijven vanaf 6 personen, duobehandeling.
 
