@@ -57,7 +57,7 @@ def s5(t, p):  # beide onder elkaar
     wordmark(d); return im
 
 
-scenes = [(1.6, s1), (1.5, s2), (2.0, s3), (2.3, s4), (2.6, s5), (3.2, cta_motion)]
+scenes = [(1.8, s1), (1.6, s2), (2.6, s3), (2.5, s4), (3.0, s5), (3.4, cta_motion)]
 
 
 def COVER():

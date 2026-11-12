@@ -1,10 +1,10 @@
 import sys, os; sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from holasmile_motion import *
 
-# Bewegende voor/na-reel 13 nov, klant06 (uit sjabloon-voor-na-beweging.py).
+# Bewegende voor/na-reel 13 nov, klant13 (uit sjabloon-voor-na-beweging.py).
 # De foto's staan NIET in git (privé): haal ze eerst uit het dashboard naar holasmile/fotos/ (zie STUDIO.md).
 # Verzin niets over de klant. Foto's nooit bewerken of witter maken.
-FOTO = "klant06"
+FOTO = "klant13"
 HOOK = "Wacht tot je\nhet NA ziet…"
 HERE = os.path.join(os.path.dirname(__file__), "..", "..", "fotos")
 V, N = Photo(os.path.join(HERE, f"{FOTO}-voor.jpg")), Photo(os.path.join(HERE, f"{FOTO}-na.jpg"))
@@ -57,7 +57,7 @@ def s5(t, p):  # beide onder elkaar
     wordmark(d); return im
 
 
-scenes = [(1.6, s1), (1.5, s2), (2.0, s3), (2.3, s4), (2.6, s5), (3.2, cta_motion)]
+scenes = [(1.8, s1), (1.6, s2), (2.6, s3), (2.5, s4), (3.0, s5), (3.4, cta_motion)]
 
 
 def COVER():
