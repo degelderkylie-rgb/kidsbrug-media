@@ -107,3 +107,27 @@ def cta_motion(t, p):
         d.text((W / 2, 1550), "of stuur ons SMILE in een DM", font=sans(34), fill=CREAM, anchor="mm")
     twinkle(d, t, [(220, 330, 20), (860, 300, 26), (900, 1250, 16), (180, 1180, 14)])
     wordmark(d); return im
+
+
+# ---------- Schermvullende sfeerbeelden (lachende mensen) ----------
+class Fullbleed:
+    """Sfeerbeeld schermvullend (9:16). box = (x0, y0, x1, y1) fractie van de foto, wordt passend gemaakt op 9:16."""
+    def __init__(self, path, box=(0, 0, 1, 1)):
+        im = Image.open(path).convert("RGB"); w0, h0 = im.size
+        im = im.crop((int(box[0] * w0), int(box[1] * h0), int(box[2] * w0), int(box[3] * h0)))
+        self.im = ImageOps.fit(im, (int(W * 1.15), int(H * 1.15)), Image.LANCZOS)
+        g = Image.new("L", (1, H)); [g.putpixel((0, y), int(max(0, 210 - y * 0.55)) if y < 420 else (int(min(230, (y - 1350) * 0.45)) if y > 1350 else 0)) for y in range(H)]
+        self.shade = g.resize((W, H))
+
+    def frame(self, zoom=1.0):
+        """zoom 1.0 = hele (iets vergrote) foto; 1.15 = ingezoomd. Donkere rand boven en onder voor leesbare tekst."""
+        z = max(1.0, min(1.15, zoom)); cw, ch = int(W * 1.15 / z), int(H * 1.15 / z)
+        x0, y0 = (self.im.width - cw) // 2, (self.im.height - ch) // 2
+        fr = self.im.crop((x0, y0, x0 + cw, y0 + ch)).resize((W, H), Image.LANCZOS)
+        fr.paste(Image.new("RGB", (W, H), BG), (0, 0), self.shade)
+        return fr
+
+
+def ai_note(d):
+    """Klein label onderaan bij AI-/sfeerbeelden."""
+    d.text((W / 2, H - 70), "Sfeerbeeld", font=sans(24), fill=MUTED, anchor="mm")
