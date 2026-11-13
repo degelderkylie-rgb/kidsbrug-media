@@ -75,7 +75,7 @@ Alleen de afgewerkte slides gaan naar git, nooit de losse foto's.
   Wat niet werkt: sfeervideo's over de massagestoel (128-263 bereik) en steeds dezelfde "ontspan + boek nu"-boodschap.
 - Feiten die je mag gebruiken: behandeling in één afspraak (noem NOOIT "40 minuten" of een totale duur; dat klopt niet), rondes van 20 minuten (Pakket 1 = 1 × 20 min, gemiddeld 2-4 tinten lichter; Pakket 2 = 3 × 20 = 60 min; Pakket 3 = 4 × 20 = 80 min; resultaat verschilt per persoon), duobehandeling mogelijk,
   nieuwste generatie LED-lampen, luxe massagestoelen, nieuwe mondspreiders per klant, open maandag t/m zaterdag, Zundert.
-  "Tot 10 tinten lichter" alleen met "resultaat verschilt per persoon". Verzin geen prijzen, kortingen, termijnen of medische beloftes.
+  "Tot 10 tinten lichter" alleen met "resultaat verschilt per persoon". Verzin geen prijzen, kortingen, termijnen of medische beloftes. Noem NOOIT een prijs (ook niet de €179 uit Kylie's eigen advertentie): Kylie wil geen prijzen in de posts.
 - Nooit: AI-gegenereerde of nep-resultaten, nep-klanten of nep-reviews, medische claims ("veilig voor iedereen", "geen enkele gevoeligheid"), vergelijken met of afkraken van tandartsen.
 - Caption: haak-zin met emoji, 2-3 korte zinnen, wat Hola Smile doet, "Resultaten verschillen per persoon." bij resultaten,
   dan "📍 Hola Smile Clinic – Zundert" en "Boek via de link in bio of stuur ons SMILE via DM 🤍", en een afsluitende vraag.
