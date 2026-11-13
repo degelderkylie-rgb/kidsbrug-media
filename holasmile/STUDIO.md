@@ -63,8 +63,9 @@ Voorbeeld `studio/carrousels/2026-11-14-geel-na-koffie.py`: `slide_cover` (kicke
 Wissel af: **Tips** (bewaarwaardig, "Bewaar deze post"), **Zo gaat een behandeling** (stap voor stap: intake, beschermen, 3-4 rondes van 20 min onder de LED-lamp, nazorg),
 **Welk pakket past bij jou** (koffiedrinkers/rokers minstens Pakket 2, nooit eerder gebleekt vaak 3 rondes).
 Bestanden `holasmile/carrousels/holasmile-YYYY-MM-DD-onderwerp-<n>.jpg`; bekijk het contactblad.
-**Feedback Kylie (12 nov):** tekst viel weg en ze miste beelden. Houd alle tekst binnen het middelste vierkant (y 135-1215, marge 130 px, kleinere tekst),
-en zet op de omslag en de afsluiter een echt beeld: een voor/na-paar uit `meta/fotos.library` (privé ophalen) of een studiofoto als die er is.
+**Feedback Kylie (12-13 nov):** tekst viel weg, beelden waren te klein en ze miste beelden. Gebruik het HELE 4:5-vlak met GROTE beelden:
+voorbeeld `studio/carrousels/2026-11-14-koffie-tips-v2.py` (omslag met groot voor/na, elke tip-slide bovenaan een groot sfeerbeeld met lachende mensen,
+onderaan nummer + tip in grote letters, afsluiter met groot NA-beeld). Kleine tekst in een leeg vlak is te saai.
 Alleen de afgewerkte slides gaan naar git, nooit de losse foto's.
 
 ## Inhoud en toon
@@ -81,3 +82,25 @@ Alleen de afgewerkte slides gaan naar git, nooit de losse foto's.
 - Hashtags: precies 5, alleen in de caption. Vast: #tandenbleken #tandenblekenzundert #holasmileclinic, plus 2 passend (bv. #tandenblekenbreda #wittetanden #voorenna #koffietanden #stralendeglimlach).
 - Eerste reactie (`firstComment`): één vraag over het onderwerp, zonder hashtags.
 - Gebruik geen dagen/data in een reel die niet kloppen met het moment van posten.
+
+
+## Sfeerbeelden (lachende mensen) — via Canva
+
+Kylie wil naast echte resultaten ook beelden van knappe vrouwen en mannen met een stralende glimlach (focus op TANDEN, geen spa/badjas),
+bijvoorbeeld voor de duobehandeling of aanbod. Stijl: zoals `koppel-kerst` en `vrouw-goud` in `meta/sfeer.library`: close-up, warm goudlicht
+of crème/goud, luxe, mooie witte tanden duidelijk in beeld.
+- Bestaande sfeerbeelden staan PRIVÉ als assets in het dashboard (`meta/sfeer.library`); haal ze op naar `holasmile/sfeer-lokaal/` (staat in .gitignore, nooit committen).
+- Nieuwe beelden: Canva-connector. Werkwijze die werkt: `generate-design` (design_type "your_story", query: alleen een schermvullende foto,
+  geen tekst/logo, met de gewenste mensen en focus op een stralende glimlach) → `create-design-from-candidate` → `export-design` (png, 1080x1920)
+  → download de export-link met curl naar sfeer-lokaal/ → bekijk het beeld → upload als asset naar het dashboard en zet het in `meta/sfeer.library`.
+  Maximaal 2 à 3 nieuwe beelden per week (AI-limiet van Kylie); hergebruik bestaande beelden met andere uitsneden.
+- In reels: `Fullbleed(pad, box)` uit `holasmile_motion.py` (box = uitsnede als fractie; laat tekst en logo's uit advertenties weg) en `ai_note(d)`
+  ("Sfeerbeeld"). Voorbeeld: `studio/reels/2026-11-16-smile-kerstbox.py`. Tekst niet over gezichten heen: zet hem boven of onder.
+- Elke post met een sfeerbeeld krijgt `aiGenerated: true` (het dashboard zet dan het AI-label op Instagram).
+- NOOIT: een sfeerbeeld als klant, als resultaat of in een voor/na; nooit tanden "witter maken" of resultaten suggereren met een sfeerbeeld.
+- Ritme: maximaal 2 reels per week met sfeerbeelden; daarnaast echte voor/na (2 per week) en educatie.
+
+## Zelf posten met trending muziek
+
+Kylie kan bij een reel kiezen voor "Ik post zelf met muziek" (status `zelf`). Ze krijgt dan op de dag zelf rond 18:30 een mail met de download-links
+en de tekst (taak "Hola Smile postherinnering"). Posts met status `zelf` verander je niet.
