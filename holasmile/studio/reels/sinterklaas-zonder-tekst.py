@@ -1,8 +1,8 @@
 import sys, os, subprocess; sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from holasmile_style import *
 
-# Sinterklaas-filmpje ZONDER tekst (wens Kylie 17 nov): Sint loopt binnen -> Sint in de stoel -> eindbeeld met logo.
-# Gebruik: python3 sinterklaas-zonder-tekst.py <clip_binnen.mp4> <clip_stoel.mp4> <uit.mp4> [logo.png]
+# Sinterklaas-filmpje ZONDER tekst (wens Kylie 17 nov): Sint in de stoel -> Sint kijkt blij in de spiegel -> eindbeeld met logo.
+# Gebruik: python3 sinterklaas-zonder-tekst.py <clip_stoel.mp4> <clip_spiegel.mp4> <uit.mp4> [logo.png]
 # Zonder logo-bestand komt het tekstwoordmerk in het eindbeeld (tijdelijk, tot het echte logo er is).
 IN_A, IN_B, OUT = sys.argv[1], sys.argv[2], sys.argv[3]
 LOGO = sys.argv[4] if len(sys.argv) > 4 else None
