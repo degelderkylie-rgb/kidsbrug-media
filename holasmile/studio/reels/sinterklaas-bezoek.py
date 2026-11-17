@@ -18,17 +18,16 @@ def clip(frames, t):
     return im, ImageDraw.Draw(im)
 
 
-def s1(t, p):  # haak: Sint ligt in onze stoel
-    im, d = clip(C1, t)
-    kicker(d, 1390, "Bezoek in Zundert")
-    big_text(d, 1480, "Kijk wie er in\nonze stoel lag…", 92, scale=pop(min(1, t / 0.3)))
-    twinkle(d, t, [(150, 1420, 18), (930, 1440, 22)]); return im
-
-
-def s2(t, p):  # duim omhoog
+def s1(t, p):  # haak (POV): Sint komt binnenlopen
     im, d = clip(C2, t)
-    big_text(d, 1440, "Goedgekeurd\ndoor de Sint!", 100, scale=pop(min(1, t / 0.3)))
-    twinkle(d, t, [(140, 1380, 20), (940, 1400, 24), (900, 1760, 14)]); return im
+    big_text(d, 1350, "POV: je werkt bij een\ntandenbleeksalon en\ndít komt binnenlopen", 76, scale=pop(min(1, t / 0.3)))
+    twinkle(d, t, [(120, 1310, 20), (960, 1320, 24), (900, 1780, 14)]); return im
+
+
+def s2(t, p):  # Sint in de stoel onder de LED-lamp
+    im, d = clip(C1, t)
+    big_text(d, 1440, "En hij wilde\nmeteen de stoel in…", 92, scale=pop(min(1, t / 0.3)))
+    twinkle(d, t, [(150, 1400, 18), (930, 1420, 22)]); return im
 
 
 def s3(t, p):  # pakjesavond
@@ -45,13 +44,12 @@ def s3(t, p):  # pakjesavond
     twinkle(d, t, [(180, 330, 22), (900, 300, 18), (880, 1600, 16)]); wordmark(d); return im
 
 
-scenes = [(len(C1) / FPS, s1), (len(C2) / FPS, s2), (3.0, s3), (3.8, cta_motion)]
+scenes = [(len(C2) / FPS, s1), (len(C1) / FPS, s2), (3.0, s3), (3.8, cta_motion)]
 
 
 def COVER():
     im, d = clip(C2, 3.2)
-    kicker(d, 1300, "Bezoek in Zundert")
-    big_text(d, 1390, "De Sint kwam\nlangs!", 100)
+    big_text(d, 1240, "POV: je werkt bij een\ntandenbleeksalon en\ndít komt binnenlopen", 76)
     return im
 
 
